@@ -9,7 +9,7 @@ let osc;
 let sound;
 let audioWave;
 let url =
-  "http://api.openweathermap.org/data/2.5/weather?q=Stockholm&units=metric&appid=b48c7729bd6c5816e8c6fb60c20264a6";
+  "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Stockholm&units=metric&appid=b48c7729bd6c5816e8c6fb60c20264a6";
 
 function preload() {
   sound = loadSound("assets/rain.mp3");
