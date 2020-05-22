@@ -5,7 +5,7 @@ let s = 0.0;
 let a2 = 0.0;
 let s2 = 0.0;
 let osc;
-
+const proxy = "";
 let sound;
 let url =
   "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Stockholm&units=metric&appid=b48c7729bd6c5816e8c6fb60c20264a6";
@@ -30,14 +30,17 @@ function draw() {
   background("rgba(0,0,0,0.01)");
   a = a + 0.01;
   s = cos(a) * 3;
+  a2 = a2 + 0.03;
+  s2 = sin(a2) * 4;
 
   if (weather) {
-    var temp = weather.main.temp * 50;
+    var temp = weather.main.temp * 30;
     var humidity = weather.main.humidity * 2;
 
     title = weather.name;
     tempTitle = weather.main.temp + " °C";
-    feelsLike = "Feels like: " + weather.main.feels_like + " °C";
+    feelsLikeTitle = "Feels like: " + weather.main.feels_like + " °C";
+    feelsLike = weather.main.feels_like * 20;
     humidityTitle = weather.main.humidity + "%";
     descriptionTitle = weather.weather[0].main;
     // console.log(typeof descriptionTitle);
@@ -57,8 +60,8 @@ function draw() {
     // Feels Like Title
     push();
     textSize(32);
-    stroke(0, 204, 250);
-    text(feelsLike, 400, 300);
+    stroke(200, 04, 250);
+    text(feelsLikeTitle, 400, 300);
     pop();
     //Humidity Title
     textSize(32);
@@ -74,12 +77,19 @@ function draw() {
     pop();
 
     translate(width / 2, height / 2);
-
+    push();
     scale(s);
     // Temp ellipse
     push();
     stroke(0, 204, 250);
     ellipse(100, 0, temp, temp);
+    pop();
+    pop();
+    scale(s2);
+    // Feels like ellipse
+    push();
+    stroke(200, 04, 250);
+    ellipse(100, 100, feelsLike, feelsLike);
     pop();
 
     // Humidity ellipse
