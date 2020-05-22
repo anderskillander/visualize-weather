@@ -30,7 +30,7 @@ function draw() {
   background("rgba(0,0,0,0.01)");
   a = a + 0.01;
   s = cos(a) * 3;
-  a2 = a2 + 0.03;
+  a2 = a2 + 0.02;
   s2 = sin(a2) * 2;
 
   if (weather) {
