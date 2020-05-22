@@ -31,7 +31,7 @@ function draw() {
   a = a + 0.01;
   s = cos(a) * 3;
   a2 = a2 + 0.03;
-  s2 = sin(a2) * 4;
+  s2 = sin(a2) * 2;
 
   if (weather) {
     var temp = weather.main.temp * 30;
