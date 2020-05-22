@@ -7,14 +7,8 @@ let s2 = 0.0;
 let osc;
 
 let sound;
-let audioWave;
 let url =
   "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Stockholm&units=metric&appid=b48c7729bd6c5816e8c6fb60c20264a6";
-
-function preload() {
-  sound = loadSound("assets/rain.mp3");
-  audioWave = loadImage("assets/audio.png");
-}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -24,7 +18,7 @@ function setup() {
   noFill();
   stroke(255, 204, 0);
   background(0);
-  button = createButton("Button");
+  sound = loadSound("assets/rain.mp3");
 }
 
 function gotData(data) {
@@ -33,7 +27,6 @@ function gotData(data) {
 }
 
 function draw() {
-  image(audioWave, 200, 200, 20, 20);
   background("rgba(0,0,0,0.01)");
   a = a + 0.01;
   s = cos(a) * 3;
